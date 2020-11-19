@@ -1,7 +1,7 @@
 <?php  
     
     // koneksi database
-    $conn = mysqli_connect("localhost", "root", "", "absen");
+    $conn = mysqli_connect("localhost", "root", "", "absensi");
 
 
     if (!$conn) {

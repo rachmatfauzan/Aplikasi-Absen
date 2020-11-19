@@ -12,10 +12,6 @@
     <h1>Absensi User</h1>
 
     <a href="logout.php">Logout</a>
-
-    <?php 
-    
-    var_dump($_SESSION["username"])
-    ?>
+    <h1>Level = <?= $_SESSION["username"];?></h1>
 </body>
 </html>

@@ -10,16 +10,19 @@
   <meta charset="UTF-8">
   <title>Login with Qrcode</title>
   <style>
-    body{
+    body {
       background-color: black;
       color: white;
     }
-    .app{
+
+    .app {
       display: flex;
     }
-    fieldset{
+
+    fieldset {
       display: none;
     }
+
     .sidebar {
       width: 350px;
       margin: auto;
@@ -27,10 +30,12 @@
       text-decoration: none;
       text-align: center;
     }
-    .sidebar ul li{
+
+    .sidebar ul li {
       list-style: none;
     }
-    .title{
+
+    .title {
       text-align: center;
     }
 
@@ -67,10 +72,12 @@
         <fieldset class="scheduler-border">
           <legend class="scheduler-border"> Scan Pada Box </legend>
           <input type="text" name="qrcode" id="code" autofocus>
+          <input type="date" name="date">
         </fieldset>
       </form>
 
       <div class="title">
+        <h4>Absen Masuk</h4>
         <h4>SCAN QRCODE DIBAWAH INI</h4>
       </div>
 
@@ -81,19 +88,29 @@
           $qrcode = $_POST['qrcode'];
           $arr = explode("|", $qrcode);
 
+          $id = $arr[0];
           $username = $arr[1];
           $pass = $arr[2];
 
-          $sql = "SELECT * FROM qrcode WHERE username ='$username' AND password='$pass' AND IsActive = 1";
 
+          // 
+          $sql = "SELECT * FROM tb_user WHERE username ='$username' AND password='$pass' AND IsActive = 1";
           $resultSQL = mysqli_query($conn, $sql);
-
           $result = mysqli_fetch_array($resultSQL);
 
+          
          if (mysqli_num_rows($resultSQL) > 0) {
 
+          $_SESSION['id'] = $result['id'];
+          
           $_SESSION['username'] = $result['username'];
+          $username = $_SESSION['username'];
           $_SESSION['IsActive'] = TRUE;
+
+          
+          $rec = "INSERT INTO history_in (date_masuk, username) VALUES (now(), '$username')";
+          $hasil = mysqli_query($conn, $rec);
+
 
           // alternatif alert JS
           // echo "
@@ -101,8 +118,8 @@
           //       alert ('Absen Berhasil Bro');
           //   </script>";
           // 
-
-          header("location: user.php");
+          
+          header("location:user.php");
          }
           
 
