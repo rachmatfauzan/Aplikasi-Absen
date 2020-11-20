@@ -104,11 +104,13 @@
           $_SESSION['id'] = $result['id'];
           
           $_SESSION['username'] = $result['username'];
+          $_SESSION['level'] = $result['level_user'];
+          $level_user = $_SESSION['level'];
           $username = $_SESSION['username'];
           $_SESSION['IsActive'] = TRUE;
 
           
-          $rec = "INSERT INTO history_in (date_masuk, username) VALUES (now(), '$username')";
+          $rec = "INSERT INTO history_in (date_masuk, username, level_user) VALUES (now(), '$username', '$level_user')";
           $hasil = mysqli_query($conn, $rec);
 
 

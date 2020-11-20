@@ -14,14 +14,16 @@
             $_SESSION['username'] = $hasil['username'];
             $_SESSION['level'] = $hasil['level_user'];
 
+
             header('location:dashboard.php');
         } else{
             echo "
-             <script>
-                 alert ('user name atau password salah');
-             </script>";
+            <script>
+                alert ('USERNAME ATAU PASSWORD SALAH !');
+            </script>";
         }
     }
+    
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +33,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard TU</title>
-
 <body>
     <div class="container">
         <div class="formulir">
@@ -41,7 +42,7 @@
                         <th>Login</th>
                     </tr>
                     <tr>
-                        <td><input type="text" name="username" id="username" placeholder="username">
+                        <td><input autofocus type="text" name="username" id="username" placeholder="username">
                         </td>
                     </tr>
                     <tr>
@@ -49,15 +50,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><input type="submit" name="login" value="masuk">
+                        <td><input type="submit" name="login" id="login" value="masuk">
                         </td>
                     </tr>
                 </table>
             </form>
         </div>
-
     </div>
-
 </body>
 
 </html>

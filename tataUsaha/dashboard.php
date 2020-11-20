@@ -5,6 +5,7 @@
     if(!isset($_SESSION['data'])){
         header("location:login.php");
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -25,30 +26,33 @@
         <?php  
             $level_mhs = $_SESSION['level'] == 'mahasiswa';
             $level_dsn = $_SESSION['level'] == 'dosen';
-            $level_tu = $_SESSION['level'] == 'tata_usaha'
+            $level_tu = $_SESSION['level'] == 'tata_usaha';
         ?>
         <ul>
             <?php 
                 if ($level_tu) {
             ?>
             <li>
-                <a href="#">Lihat Absen Dosen</a>
+                <a href="absen-dosen.php">Lihat Absen Dosen</a>
             </li>
             <li>
-                <a href="#">Lihat Absen Mahasiswa</a>
+                <a href="absen-mhs.php">Lihat Absen Mahasiswa</a>
+            </li>
+            <li>
+                <a href="tambah-user.php">Tambah User</a>
             </li>
                 <?php } else if ($level_dsn){ ?>
         <!-- dosen -->
             <li>
-                <a href="#">Lihat Absen Mahasiswa</a>
+                <a href="absen-mhs.php">Lihat Absen Mahasiswa</a>
             </li>
             <li>
-                <a href="#">Lihat Absen Saya</a>
+                <a href="absen-dosen.php">Lihat Absen Saya</a>
             </li>
                 <?php } else if($level_mhs) { ?>
         <!-- mahasiswa -->
             <li>
-                <a href="#">Lihat Absen Saya</a>
+                <a href="absen-mhs.php">Lihat Absen Saya</a>
             </li>
                 <?php } ?>
     </div>
