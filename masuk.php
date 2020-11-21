@@ -10,51 +10,26 @@
   <meta charset="UTF-8">
   <title>Login with Qrcode</title>
   <style>
-    body {
-      background-color: black;
-      color: white;
-    }
-
-    .app {
-      display: flex;
-    }
-
     fieldset {
       display: none;
-    }
-
-    .sidebar {
-      width: 350px;
-      margin: auto;
-      padding: 10px;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    .sidebar ul li {
-      list-style: none;
-    }
-
-    .title {
-      text-align: center;
-    }
-
-    .camera {
-      width: 610px;
-      margin: auto;
     }
   </style>
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- scanner -->
   <script src="scanner/vendor/modernizr/modernizr.js"></script>
   <script src="scanner/vendor/vue/vue.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- css -->
+  <link rel="stylesheet" href="css/masuk.css">
+  <!-- Link CDN font-awesome  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 
 <body>
 
   <!-- scan -->
-  <div id="app" class="row box">
-    <div class="col-md-4 col-md-offset-4 sidebar">
+  <div id="app" class="box bg-dark text-white">
+    <div class="sidebar">
       <ul>
         <li v-if="cameras.length === 0" class="empty">No cameras found</li>
         <li v-for="camera in cameras">
@@ -77,9 +52,10 @@
       </form>
 
       <div class="title">
-        <h4>Absen Masuk</h4>
-        <h4>SCAN QRCODE DIBAWAH INI</h4>
+        <h4 class="bg-light text-dark">Absensi</h4>
+        <h4 class="text-weight-bold">SCAN QRCODE DIBAWAH INI</h4>
       </div>
+
 
       <?php 
       
@@ -121,7 +97,10 @@
           //   </script>";
           // 
           
-          header("location:user.php");
+          echo "
+            <script>
+                alert ('Absen Berhasil !!');
+            </script>";
          }
           
 
@@ -133,6 +112,13 @@
     <div class="col-xs-12 preview-container camera">
       <video id="preview" class="thumbnail"></video>
     </div>
+
+    <a href="tataUsaha/index.php" class="btn btn-light"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+
+    <div class="footer d-flex justify-content-center">
+      <p>Created By &copy; Rachmat Fauzan</p>
+    </div>
+
   </div>
   <!-- scanner -->
   <script src="scanner/js/app.js"></script>

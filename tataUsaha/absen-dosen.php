@@ -27,25 +27,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Absensi</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- scanner -->
+    <script src="scanner/vendor/modernizr/modernizr.js"></script>
+    <script src="scanner/vendor/vue/vue.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- css -->
+    <link rel="stylesheet" href="../css/masuk.css">
+    <link rel="stylesheet" href="../css/absen-dosen.css">
+    <!-- Link CDN font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 
-<body>
+<body class="bg-dark text-light">
 
-    <div class="container">
-        
-    <nav>
-        <a href="dashboard.php">Dashboard</a>
-    </nav>
+    <div class="container d-flex align-items-center flex-column">
+
+        <nav>
+            <a href="dashboard.php"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a>
+        </nav>
 
         <div class="title">
             <h2>Absen Dosen</h2>
         </div>
-        <table border="1">
-            <tr>
+        <div class="table-responsive table-bordered">
+        <table class="table">
+            <tr class="bg-light text-dark">
                 <th>Username</th>
                 <th>Waktu Masuk</th>
             </tr>
@@ -63,6 +76,7 @@
             </tr>
             <?php endforeach; ?>
         </table>
+        </div>
     </div>
 </body>
 

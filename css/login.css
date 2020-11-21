@@ -1,0 +1,15 @@
+.container{
+    height: 100%;
+}
+.formulir table tr input, button{
+    margin-top: 20px;
+}
+table{
+    height: 100vh;
+}
+table th{
+    text-align:center;
+}
+button{
+    width: 100%;
+}

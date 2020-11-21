@@ -28,44 +28,47 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah User</title>
-    <style>
-        .row label {
-            display: block;
-        }
-    </style>
+    <title>Absensi</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- scanner -->
+    <script src="scanner/vendor/modernizr/modernizr.js"></script>
+    <script src="scanner/vendor/vue/vue.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- css -->
+    <link rel="stylesheet" href="../css/masuk.css">
+    <link rel="stylesheet" href="../css/tambah-user.css">
+    <!-- Link CDN font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 
-<body>
+<body class="bg-dark text-light">
 
     <div class="container">
 
-        
         <nav>
             <a href="dashboard.php">Dashboard</a>
         </nav>
         <h3>Tambah User Baru</h3>
-        <form action="" method="post">
+        <form action="" method="post" class="d-flex align-items-center flex-column">
             <div class="row">
-                <label for="">username</label>
-                <input type="text" name="username" placeholder="username" autofocus>
+                <label for="">username</label><br>
+                <input type="text" class="form-control" name="username" placeholder="username" autofocus>
             </div>
             <div class="row">
-                <label for="">password</label>
-                <input type="password" name="password" placeholder="password" required>
+                <label for="">password</label><br>
+                <input type="password" class="form-control" name="password" placeholder="password" required>
             </div>
             <div class="row">
-                <label for="">nim</label>
-                <input type="text" name="nim" placeholder="nim" required>
+                <label for="">nim</label><br>
+                <input type="text" class="form-control" name="nim" placeholder="nim" required>
             </div>
             <div class="row">
-                <label for="status">Status</label>
+                <label for="status">Status</label><br>
 
-                <select name="status" id="status">
+                <select name="status" class="form-control" id="status">
                     <option value="#" disabled selected>--- Choose One ---</option>
                     <optgroup>
                         <option value="mahasiswa">Mahasiswa</option>
@@ -74,7 +77,7 @@
                     </optgroup>
                 </select>
             </div>
-            <button type="submit" name="daftar">Daftar</button>
+            <button type="submit" class="btn btn-info" name="daftar">Daftar</button>
         </form>
 
 

@@ -1,0 +1,23 @@
+body{
+    padding: 10px;
+}
+.container ul li {
+    list-style-type: none;
+}
+.container h3{
+    font-size: 14px;
+    text-transform: capitalize;
+    text-align: left;
+}
+.container li a{
+    width: 30%;
+    text-align: left;
+}
+footer a{
+    right: 7em;
+    top: 10px;
+    position: absolute;
+}
+footer a i:hover{
+    color: salmon;
+}

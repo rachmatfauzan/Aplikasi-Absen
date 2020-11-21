@@ -1,0 +1,11 @@
+body{
+    padding: 20px;
+}
+.row{
+    display: block;
+    width: 30%;
+    margin-bottom: 20px;
+}
+button{
+    width: 25%;
+}
