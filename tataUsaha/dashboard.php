@@ -41,9 +41,9 @@
             <?php 
                 if ($level_tu) {
             ?>
-            <li>
+            <!-- <li>
                 <a href="absen-dosen.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Dosen</a>
-            </li>
+            </li> -->
             <li>
                 <a href="absen-mhs.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Mahasiswa</a>
             </li>

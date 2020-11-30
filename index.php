@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="css/masuk.css">
   <!-- Link CDN font-awesome  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <!--  CDN SWAL-->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
@@ -97,10 +100,9 @@
           //   </script>";
           // 
           
-          echo "
-            <script>
-                alert ('Absen Berhasil !!');
-            </script>";
+          echo '<script>
+          swal("Absen Berhasil!", "Selamat Berkerja :)", "success");
+          </script>';
          }
           
 

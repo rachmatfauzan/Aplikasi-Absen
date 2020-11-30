@@ -16,10 +16,7 @@
 
         $query = mysqli_query($conn, "INSERT INTO tb_user VALUES ('','$username','$password',now(),'admin','1','','$nim','$status')");
         if ($query){
-            echo "
-             <script>
-                 alert ('Berhasil Ditambahkan');
-             </script>";
+            $berhasil = true;
         }else{
             echo "gagal";
         }
@@ -42,6 +39,8 @@
     <link rel="stylesheet" href="../css/tambah-user.css">
     <!-- Link CDN font-awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <!--  CDN SWAL-->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body class="bg-dark text-light">
@@ -79,10 +78,14 @@
             </div>
             <button type="submit" class="btn btn-info" name="daftar">Daftar</button>
         </form>
-
-
     </div>
 
+
+    <?php if(isset($berhasil)) :  ?>
+        <script>
+            swal("Berhasil Daftar", "You clicked the button!", "success");
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>

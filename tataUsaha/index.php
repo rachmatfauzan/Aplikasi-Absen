@@ -42,7 +42,7 @@
   <!-- Link CDN font-awesome  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
-<body class="bg-dark text-light">
+<body class="bg-dark text-light" style="height: 100%;">
     <div class="container">
         <div class="formulir">
             <form method="POST" align="center" size="80%" action="" >
@@ -61,7 +61,7 @@
                     <tr>
                         <td>
                             <button type="submit" name="login" id="login" class="btn btn-dark"><i class="fas fa-sign-in-alt mr-2"></i>Login</button>
-                            <a href="../masuk.php" class="text-light">QRCode</a>
+                            <a href="../index.php" class="text-light">QRCode</a>
                         </td>
                     </tr>
                 </table>
