@@ -27,9 +27,7 @@
 
 <body class="bg-dark text-light">
     <div class="container tex-light">
-        <h3><i class="far fa-user-circle mr-2"></i><?= $_SESSION['username'];  ?>
-        <br>Posisi : <?= $_SESSION['level']; ?></h3>
-
+        <h3><i class="far fa-user-circle mr-2"></i><?= $_SESSION['username'];  ?> </h3>
         
 
         <?php  

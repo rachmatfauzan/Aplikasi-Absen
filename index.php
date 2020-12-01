@@ -68,6 +68,8 @@
           $arr = explode("|", $qrcode);
 
           $id = $arr[0];
+
+          error_reporting ( E_ALL & ~E_NOTICE);
           $username = $arr[1];
           $pass = $arr[2];
 
@@ -100,13 +102,18 @@
           //   </script>";
           // 
           
+          $berhasil = true;
+          // echo '<script>
+          // swal("Absen Berhasil!", "Selamat Berkerja :)", "success");
+          // </script>';
+         } else{
           echo '<script>
-          swal("Absen Berhasil!", "Selamat Berkerja :)", "success");
+          swal("Data Tidak Ditemukan !", "Jangan berbohong :(", "error");
           </script>';
-         }
-          
-
         }
+         
+
+        } 
 
       ?>
 
@@ -115,13 +122,21 @@
       <video id="preview" class="thumbnail"></video>
     </div>
 
+
     <a href="tataUsaha/index.php" class="btn btn-light"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
 
     <div class="footer d-flex justify-content-center">
       <p>Created By &copy; Rachmat Fauzan</p>
     </div>
+    
+    <?php if( isset($berhasil)) : ?>
+      <script>
+        swal("Absen Berhasil!", "Selamat Berkerja <?= $username; ?> :) ", "success");
+      </script>
+    <?php endif; ?>
 
   </div>
+  
   <!-- scanner -->
   <script src="scanner/js/app.js"></script>
   <script src="scanner/vendor/instascan/instascan.min.js"></script>
