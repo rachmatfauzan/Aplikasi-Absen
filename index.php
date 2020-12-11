@@ -18,20 +18,25 @@
   <!-- scanner -->
   <script src="scanner/vendor/modernizr/modernizr.js"></script>
   <script src="scanner/vendor/vue/vue.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Bootstrap4 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <!-- css -->
   <link rel="stylesheet" href="css/masuk.css">
   <!-- Link CDN font-awesome  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="font-awesome/fa/css/all.css">
   <!--  CDN SWAL-->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="swal2/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="swal2/dist/sweetalert2.min.css">
+
+<link rel="stylesheet" href="sweetalert2.min.css">
 
 </head>
 
 <body>
 
   <!-- scan -->
-  <div id="app" class="box bg-dark text-white">
+  <div id="app" class="box bg-dark text-white" style="width: 100%; height: 100vh;">
     <div class="sidebar">
       <ul>
         <li v-if="cameras.length === 0" class="empty">No cameras found</li>
@@ -108,7 +113,7 @@
           // </script>';
          } else{
           echo '<script>
-          swal("Data Tidak Ditemukan !", "Jangan berbohong :(", "error");
+          swal.fire ("Data Tidak Ditemukan !", "Jangan berbohong :(", "error");
           </script>';
         }
          
@@ -131,7 +136,7 @@
     
     <?php if( isset($berhasil)) : ?>
       <script>
-        swal("Absen Berhasil!", "Selamat Berkerja <?= $username; ?> :) ", "success");
+        swal.fire ("Absen Berhasil!", "Selamat Berkerja <?= $username; ?> :) ", "success");
       </script>
     <?php endif; ?>
 
@@ -141,6 +146,7 @@
   <script src="scanner/js/app.js"></script>
   <script src="scanner/vendor/instascan/instascan.min.js"></script>
   <script src="scanner/js/scanner.js"></script>
+  
 </body>
 
 </html>

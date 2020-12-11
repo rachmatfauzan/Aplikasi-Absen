@@ -32,15 +32,18 @@
     <!-- scanner -->
     <script src="scanner/vendor/modernizr/modernizr.js"></script>
     <script src="scanner/vendor/vue/vue.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Bootstrap4 -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">    
     <!-- css -->
     <link rel="stylesheet" href="../css/masuk.css">
     <link rel="stylesheet" href="../css/tambah-user.css">
     <!-- Link CDN font-awesome  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="../font-awesome/fa/css/all.css">
     <!--  CDN SWAL-->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../swal2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="../swal2/dist/sweetalert2.min.css">
+
 </head>
 
 <body class="bg-dark text-light">
@@ -71,8 +74,7 @@
                     <option value="#" disabled selected>--- Choose One ---</option>
                     <optgroup>
                         <option value="mahasiswa">Mahasiswa</option>
-                        <option value="dosen">Dosen</option>
-                        <option value="tata_usaha">Tata Usaha</option>
+                        <option value="tata_usaha">Dosen</option>
                     </optgroup>
                 </select>
             </div>
@@ -83,7 +85,7 @@
 
     <?php if(isset($berhasil)) :  ?>
         <script>
-            swal("Berhasil Daftar", "You clicked the button!", "success");
+            swal.fire ("Berhasil Daftar", "Selamat Datang!", "success");
         </script>
     <?php endif; ?>
 </body>

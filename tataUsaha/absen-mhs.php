@@ -37,22 +37,28 @@
     <!-- scanner -->
     <script src="scanner/vendor/modernizr/modernizr.js"></script>
     <script src="scanner/vendor/vue/vue.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap4 -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <!-- css -->
     <link rel="stylesheet" href="../css/masuk.css">
     <link rel="stylesheet" href="../css/absen-dosen.css">
     <!-- Link CDN font-awesome  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="../font-awesome/fa/css/all.css">
 
-    <!-- link script datatable -->
+    <!-- link script datatable
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css"> -->
+
+    <!-- datatables -->
+    <script src="../datatable/js/jquery.js"></script>
+    <script src="../datatable/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="../datatable/data/css/dataTables.bootstrap4.min.css">
 </head>
+
 
 <body class="bg-dark text-light">
 
@@ -69,7 +75,7 @@
             <table class="table" id="data" style="text-align: left;">
                 <thead>
                     <tr class="bg-light text-dark">
-                        <th>No</th>
+                        <th style="display: none;">No</th>
                         <th>Username</th>
                         <th>Waktu Masuk</th>
                     </tr>
@@ -78,7 +84,7 @@
                     <?php $no = 1; ?>
                     <?php foreach ($query as $data): ?>
                     <tr class="text-white">
-                        <td><?= $no; ?></td>
+                        <td style="display: none;"><?= $no; ?></td>
                         <td><?= $data['username']; ?></td>
                         <td>
                             <!-- start Logik - Get lastactivity from database -->
@@ -86,7 +92,7 @@
                                 $date = date_create($data['date_masuk']);
                         ?>
                             <!-- End Logik - Get lastactivity from database -->
-                            <?= date_format($date, 'l, j F Y g:ia'); ?>
+                            <?= date_format($date, 'j F Y g:ia'); ?>
                         </td>
                     </tr>
                     <?php $no++; ?>
@@ -106,9 +112,11 @@
             $('#data').DataTable({
                 scrollX: false,
                 "lengthMenu": [
-                    [18, 25, 50, -1],
+                    [17, 25, 50, -1],
                     [17, 50, 100, "All"]
-                ]
+                ],
+                "ordering": true,
+                "order": [[0, 'desc']]
                 });
         });
     </script>
