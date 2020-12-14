@@ -29,7 +29,7 @@
   <script src="swal2/dist/sweetalert2.min.js"></script>
   <link rel="stylesheet" href="swal2/dist/sweetalert2.min.css">
 
-<link rel="stylesheet" href="sweetalert2.min.css">
+  <link rel="stylesheet" href="sweetalert2.min.css">
 
 </head>
 
@@ -133,20 +133,196 @@
     <div class="footer d-flex justify-content-center">
       <p>Created By &copy; Rachmat Fauzan</p>
     </div>
-    
-    <?php if( isset($berhasil)) : ?>
-      <script>
-        swal.fire ("Absen Berhasil!", "Selamat Berkerja <?= $username; ?> :) ", "success");
-      </script>
+
+    <?php if(isset($berhasil)) : ?>
+    <script>
+      swal.fire("Absen Berhasil!", "Selamat Berkerja <?= $username; ?> :) ", "success");
+    </script>
+    <?php 
+      
+
+        if($username == 'resa'){
+           $resa = true;
+        }
+        
+        if($username == 'widya'){
+            $widya = true;
+        }
+
+        if($username == 'fara'){
+          $fara = true;
+        }
+      
+        if($username == 'rachmat'){
+          $rachmat = true;
+        }
+        if($username == 'diana'){
+          $diana = true;
+        }
+
+        if($username == 'riansyah'){
+          $rian = true;
+         }
+
+      if($username == 'anawati'){
+        $anawati = true;
+      }
+
+    if($username == 'putri'){
+      $putri = true;
+    }
+
+    if($username == 'garda'){
+      $garda = true;
+  }
+
+  if($username == 'hidayat'){
+    $hidayat = true;
+}
+
+if($username == 'tama'){
+  $tama = true;
+}
+
+if($username == 'fajar'){
+  $fajar = true;
+}
+
+if($username == 'adi'){
+  $adi = true;
+}
+if($username == 'rangga'){
+  $rangga = true;
+}
+if($username == 'pragus'){
+  $pragus = true;
+}
+if($username == 'liza'){
+  $liza = true;
+}
+if($username == 'tessha'){
+  $tessha = true;
+}
+
+
+  
+      
+      ?>
     <?php endif; ?>
 
+    <!-- voice -->
+    <?php if(isset($tessha)) :  ?>
+      <audio autoplay>
+        <source src="voice/tessha.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($liza)) :  ?>
+      <audio autoplay>
+        <source src="voice/liza.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($pragus)) :  ?>
+      <audio autoplay>
+        <source src="voice/pragus.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($rangga)) :  ?>
+      <audio autoplay>
+        <source src="voice/rangga.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+
+    <?php if(isset($adi)) :  ?>
+      <audio autoplay>
+        <source src="voice/adi.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($fajar)) :  ?>
+      <audio autoplay>
+        <source src="voice/fajar.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+
+    <?php if(isset($resa)) :  ?>
+    <audio autoplay>
+      <source src="voice/resa.mp3" type="audio/mpeg">
+    </audio>
+    <?php endif; ?>
+
+    <?php if(isset($widya)) :  ?>
+    <audio autoplay>
+      <source src="voice/widya.mp3" type="audio/mpeg">
+    </audio>
+    <?php endif; ?>
+
+    <?php if(isset($fara)) :  ?>
+    <audio autoplay>
+      <source src="voice/fara.mp3" type="audio/mpeg">
+    </audio>
+    <?php endif; ?>
+
+    <?php if(isset($rachmat)) :  ?>
+    <audio autoplay>
+      <source src="voice/rachmat.mp3" type="audio/mpeg">
+    </audio>
+    <?php endif; ?>
+
+    <?php if(isset($diana)) :  ?>
+      <audio autoplay>
+        <source src="voice/diana.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($rian)) :  ?>
+      <audio autoplay>
+        <source src="voice/rian.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($anawati)) :  ?>
+      <audio autoplay>
+        <source src="voice/anawati.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($putri)) :  ?>
+      <audio autoplay>
+        <source src="voice/putri.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($garda)) :  ?>
+      <audio autoplay>
+        <source src="voice/garda.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($hidayat)) :  ?>
+      <audio autoplay>
+        <source src="voice/hidayat.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+    <?php if(isset($tama)) :  ?>
+      <audio autoplay>
+        <source src="voice/tama.mp3" type="audio/mpeg">
+      </audio>
+    <?php endif; ?>
+
+
   </div>
-  
+
   <!-- scanner -->
   <script src="scanner/js/app.js"></script>
   <script src="scanner/vendor/instascan/instascan.min.js"></script>
   <script src="scanner/js/scanner.js"></script>
-  
+
 </body>
 
 </html>

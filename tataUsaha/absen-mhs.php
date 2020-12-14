@@ -116,7 +116,7 @@
                     [17, 50, 100, "All"]
                 ],
                 "ordering": true,
-                "order": [[0, 'desc']]
+                "order": [[0, "desc"]]
                 });
         });
     </script>
