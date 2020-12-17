@@ -60,8 +60,8 @@
       </form>
 
       <div class="title">
-        <h4 class="bg-light text-dark">Absensi</h4>
-        <h4 class="text-weight-bold">SCAN QRCODE DIBAWAH INI</h4>
+        <h4 class="bg-light text-dark">Check-in attendance</h4>
+        <h4 class="text-weight-bold">Scan the QRCODE below</h4>
       </div>
 
 
@@ -113,7 +113,7 @@
           // </script>';
          } else{
           echo '<script>
-          swal.fire ("Data Tidak Ditemukan !", "Jangan berbohong :(", "error");
+          swal.fire ("Data Not Found !", ":(", "error");
           </script>';
         }
          
@@ -129,14 +129,14 @@
 
 
     <a href="tataUsaha/index.php" class="btn btn-light"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
-
+    <a href="keluar.php" class="btn btn-light"><i class="fas fa-qrcode mr-2"></i>Check-out attendance</a>
     <div class="footer d-flex justify-content-center">
       <p>Created By &copy; Rachmat Fauzan</p>
     </div>
 
     <?php if(isset($berhasil)) : ?>
     <script>
-      swal.fire("Absen Berhasil!", "Selamat Berkerja <?= $username; ?> :) ", "success");
+      swal.fire("Completed!", "Happy Working <?= $username; ?> :) ", "success");
     </script>
     <?php 
       

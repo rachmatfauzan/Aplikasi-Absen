@@ -44,7 +44,10 @@
                 <a href="absen-dosen.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Dosen</a>
             </li> -->
             <li>
-                <a href="absen-mhs.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Lihat Absen Mahasiswa</a>
+                <a href="absen-mhs.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Check-in Attendance</a>
+            </li>
+            <li>
+                <a href="absen-out.php" class="btn btn-secondary m-3"><i class="far fa-eye mr-2"></i>Check-out Attendance</a>
             </li>
             <li>
                 <a href="tambah-user.php" class="btn btn-secondary m-3"><i class="fas fa-user-plus mr-2"></i>Tambah User</a>
