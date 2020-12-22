@@ -74,7 +74,7 @@
             <h2>Check-in Attendance</h2>
         </div>
         <div class="table-responsive" style="width: 100%;">
-           <a href="export_data.php" target="_blank"><button class="btn text-white mb-2 download"><i class="fas fa-download mr-2"></i>Download to Excel</button></a>
+           <a href="export_data_in.php" target="_blank"><button class="btn text-white mb-2 download"><i class="fas fa-download mr-2"></i>Download to Excel</button></a>
             
             <table class="table" id="data" style="text-align: left;">
                 <thead>

@@ -6,7 +6,7 @@
     header('Content-Type: application/vnd-ms-excel');
     header('Content-Disposition: attachment; filename=Data Absen Magang.xls');
 
-    $dataAbsen = mysqli_query($conn, "SELECT * FROM history_in ORDER BY id_masuk DESC");
+    $dataAbsen = mysqli_query($conn, "SELECT * FROM history_out ORDER BY id_out DESC");
 
 
 ?>
@@ -22,13 +22,17 @@
 </head>
 <body>
 
+<center><h2>Absen Pulang</h2></center>
 
-<center>Data Absen Magang TFNE Politeknik Negeri Batam</center>
+<center>Data Absen Magang TFME Politeknik Negeri Batam</center>
 
 <table border="1">
 <tr>
     <th>No</th>
     <th>Nama Mahasiswa</th>
+    <th>Tanggal</th>
+    <th>Bulan</th>
+    <th>Tahun</th>
     <th>Waktu Masuk</th>
 </tr>
 <?php $no = 1; ?>
@@ -36,10 +40,13 @@
 <tr>
     <td><?= $no; ?></td>
     <td><?= $mhs['username']; ?></td>
+    <!-- // -->
+    <?php $date = date_create($mhs['date_out']); ?>
+    <td><?= date_format($date, "j"); ?></td>
+    <td><?= date_format($date, "F"); ?></td>
+    <td><?= date_format($date, "Y"); ?></td>    
     <td>
-        <?php $date = date_create($mhs['date_masuk']); ?>
-        <!-- // -->
-        <?= date_format($date, 'j F Y g:i:a'); ?>
+        <?= date_format($date, 'g:i:a'); ?>
     </td>
 </tr>
 <?php $no++; ?>
