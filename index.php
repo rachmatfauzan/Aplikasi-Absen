@@ -30,13 +30,14 @@
   <link rel="stylesheet" href="swal2/dist/sweetalert2.min.css">
 
   <link rel="stylesheet" href="sweetalert2.min.css">
+  <link rel="icon" href="img/TFME.jpg">
 
 </head>
 
 <body>
 
   <!-- scan -->
-  <div id="app" class="box bg-dark text-white" style="width: 100%; height: 100vh;">
+  <div id="app" class="box text-white" style="width: 100%; height: 100vh;">
     <div class="sidebar">
       <ul>
         <li v-if="cameras.length === 0" class="empty">No cameras found</li>
@@ -60,8 +61,8 @@
       </form>
 
       <div class="title">
-        <h4 class="bg-light text-dark">Check-in attendance</h4>
-        <h4 class="text-weight-bold">Scan the QRCODE below</h4>
+        <h4 class="text-white">Check-in attendance<i class="fas fa-cloud-sun ml-4"></i></h4>
+        <h6 class="text-weight-bold">Scan the QRCODE below<i class="fas fa-level-down-alt ml-2"></i></h6>
       </div>
 
 
@@ -96,6 +97,26 @@
           $_SESSION['IsActive'] = TRUE;
 
           
+          $cek = "SELECT * FROM history_in ORDER BY id_masuk DESC";
+          $hasilCek = mysqli_query($conn, $cek);
+          $hasil = mysqli_fetch_array($hasilCek);
+
+          $userGanda = $hasil['username'];
+
+          if ( $userGanda == $username){
+            // $dataGanda = true;
+            echo '<script>
+              swal.fire("Data Redundant ! ", ":(", "error");
+            </script>';
+            echo ' <script type="text/javascript">
+              setTimeout(function(){window.top.location="index.php"} , 2000);
+             </script>';
+            
+             die;
+
+          }
+
+          // var_dump($hasil['username']);
           $rec = "INSERT INTO history_in (date_masuk, username, level_user) VALUES (now(), '$username', '$level_user')";
           $hasil = mysqli_query($conn, $rec);
 
@@ -106,6 +127,8 @@
           //       alert ('Absen Berhasil Bro');
           //   </script>";
           // 
+
+          
           
           $berhasil = true;
           // echo '<script>
@@ -134,10 +157,37 @@
       <p>Created By &copy; Rachmat Fauzan</p>
     </div>
 
+    <div class="photo">
+      <img src="img/tfme.jpg" alt="TFME Photo">
+      <img src="img/poltek.png" alt="poltek" class="poltek">
+    </div>
+
+    <?php if(isset($dataGanda)) : ?>
+    <script>
+      setTimeout(function () {
+        swal.fire({
+          title: "Wow!",
+          text: "Message!",
+          icon: "error",
+          timer: 2000,
+          showConfirmButton: false
+        }, function () {
+          window.location = "index.php";
+        });
+      }, 1000);
+    </script>
+    <?php endif;?>
+
     <?php if(isset($berhasil)) : ?>
     <script>
       swal.fire("Completed!", "Happy Working <?= $username; ?> :) ", "success");
     </script>
+    <script type="text/javascript">
+      setTimeout(function () {
+        window.top.location = "index.php"
+      }, 5000);
+    </script>
+
     <?php 
       
 
@@ -212,40 +262,40 @@ if($username == 'tessha'){
 
     <!-- voice -->
     <?php if(isset($tessha)) :  ?>
-      <audio autoplay>
-        <source src="voice/tessha.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/tessha.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($liza)) :  ?>
-      <audio autoplay>
-        <source src="voice/liza.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/liza.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($pragus)) :  ?>
-      <audio autoplay>
-        <source src="voice/pragus.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/pragus.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($rangga)) :  ?>
-      <audio autoplay>
-        <source src="voice/rangga.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/rangga.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
 
     <?php if(isset($adi)) :  ?>
-      <audio autoplay>
-        <source src="voice/adi.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/adi.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($fajar)) :  ?>
-      <audio autoplay>
-        <source src="voice/fajar.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/fajar.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
 
@@ -274,46 +324,48 @@ if($username == 'tessha'){
     <?php endif; ?>
 
     <?php if(isset($diana)) :  ?>
-      <audio autoplay>
-        <source src="voice/diana.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/diana.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($rian)) :  ?>
-      <audio autoplay>
-        <source src="voice/rian.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/rian.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($anawati)) :  ?>
-      <audio autoplay>
-        <source src="voice/anawati.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/anawati.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($putri)) :  ?>
-      <audio autoplay>
-        <source src="voice/putri.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/putri.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($garda)) :  ?>
-      <audio autoplay>
-        <source src="voice/garda.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/garda.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($hidayat)) :  ?>
-      <audio autoplay>
-        <source src="voice/hidayat.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/hidayat.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
 
     <?php if(isset($tama)) :  ?>
-      <audio autoplay>
-        <source src="voice/tama.mp3" type="audio/mpeg">
-      </audio>
+    <audio autoplay>
+      <source src="voice/tama.mp3" type="audio/mpeg">
+    </audio>
     <?php endif; ?>
+
+
 
 
   </div>

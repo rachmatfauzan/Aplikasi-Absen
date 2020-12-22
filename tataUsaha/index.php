@@ -44,9 +44,10 @@
   <link rel="stylesheet" href="../css/login.css">
   <!-- Link CDN font-awesome  -->
   <link rel="stylesheet" href="../font-awesome/fa/css/all.css">
+  <link rel="icon" href="../img/TFME.jpg">
 
 </head>
-<body class="bg-dark text-light" style="height: 100%;">
+<body class=" text-light" style="height: 100%;">
     <div class="container">
         <div class="formulir">
             <form method="POST" align="center" size="80%" action="" >
@@ -64,7 +65,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <button type="submit" name="login" id="login" class="btn btn-dark"><i class="fas fa-sign-in-alt mr-2"></i>Login</button>
+                            <button type="submit" name="login" id="login" class="btn btn-secondary"><i class="fas fa-sign-in-alt mr-2"></i>Login</button>
                             <a href="../index.php" class="text-light">QRCode</a>
                         </td>
                     </tr>

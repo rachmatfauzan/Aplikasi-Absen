@@ -17,10 +17,10 @@
     //     $query = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='mahasiswa'");
     // }
     if($level_mhs){
-        $query = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='mahasiswa' AND username='$username'");
+        $query = mysqli_query($conn, "SELECT * FROM history_out WHERE level_user='mahasiswa' AND username='$username'");
     }
     if(!$level_mhs){
-        $query = mysqli_query($conn, "SELECT * FROM history_in WHERE level_user='mahasiswa'");
+        $query = mysqli_query($conn, "SELECT * FROM history_out WHERE level_user='mahasiswa'");
     }
     
 
@@ -71,7 +71,7 @@
         </nav>
 
         <div class="title">
-            <h2>Check-in Attendance</h2>
+            <h2>Check-OUt Attendance</h2>
         </div>
         <div class="table-responsive" style="width: 100%;">
             <table class="table" id="data" style="text-align: left;">
@@ -79,7 +79,7 @@
                     <tr class="bg-light text-dark">
                         <th style="display: none;">No</th>
                         <th>Username</th>
-                        <th>Chek-In Time</th>
+                        <th>Check-Out Time</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -91,7 +91,7 @@
                         <td>
                             <!-- start Logik - Get lastactivity from database -->
                             <?php  
-                                $date = date_create($data['date_masuk']);
+                                $date = date_create($data['date_out']);
                         ?>
                             <!-- End Logik - Get lastactivity from database -->
                             <?= date_format($date, 'j F Y g:ia'); ?>

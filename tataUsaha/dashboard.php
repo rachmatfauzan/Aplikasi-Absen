@@ -24,9 +24,10 @@
   <link rel="stylesheet" href="../css/dashboard.css">
   <!-- Link CDN font-awesome  -->
   <link rel="stylesheet" href="../font-awesome/fa/css/all.css">
+  <link rel="icon" href="../img/TFME.jpg">
 </head>
 
-<body class="bg-dark text-light">
+<body class="text-light">
     <div class="container tex-light">
         <h3><i class="far fa-user-circle mr-2"></i><?= $_SESSION['username'];  ?> </h3>
         

@@ -1,11 +1,15 @@
-body{
+body {
     padding: 20px;
+    background-image: linear-gradient(to bottom, #1d1f21, #3a344f, #7f3c61, #ba4c47, #c28001);
+
 }
-.row{
+
+.row {
     display: block;
     width: 30%;
     margin-bottom: 20px;
 }
-button{
+
+button {
     width: 25%;
 }
