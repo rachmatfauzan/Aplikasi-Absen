@@ -216,7 +216,7 @@
     <script type="text/javascript">
       setTimeout(function () {
         window.top.location = "index.php"
-      }, 5000);
+      }, 3500);
     </script>
 
     <?php 

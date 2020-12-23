@@ -78,6 +78,8 @@
           error_reporting ( E_ALL & ~E_NOTICE);
           $username = $arr[1];
           $pass = $arr[2];
+          date_default_timezone_set('Asia/Jakarta');
+          $tgl = date('d-m-Y');
 
 
           // 
@@ -91,34 +93,62 @@
           $_SESSION['id'] = $result['id'];
           
           $_SESSION['username'] = $result['username'];
-          $_SESSION['level'] = $result['level_user'];
+          $_SESSION['level'] = 
+          $_SESSION['dateOut'] = $result ['dateCheckout'];
+
+          $id = $_SESSION['id'];
+          $date = $_SESSION ['dateOut'];
+          
+          $result['level_user'];
           $level_user = $_SESSION['level'];
           $username = $_SESSION['username'];
           $_SESSION['IsActive'] = TRUE;
 
-          $cek = "SELECT * FROM history_out ORDER BY id_out DESC";
-          $hasilCek = mysqli_query($conn, $cek);
-          $hasil = mysqli_fetch_array($hasilCek);
+          // $cek = "SELECT * FROM history_out ORDER BY id_out DESC";
+          // $hasilCek = mysqli_query($conn, $cek);
+          // $hasil = mysqli_fetch_array($hasilCek);
 
-          $userGanda = $hasil['username'];
+          // $userGanda = $hasil['username'];
 
-          if ( $userGanda == $username){
-            // echo "
-            //  <script>
-            //     alert ('Failed');
-            //     window.location = 'index.php';
-            //  </script>";
+          // if ( $userGanda == $username){
+          //   // echo "
+          //   //  <script>
+          //   //     alert ('Failed');
+          //   //     window.location = 'index.php';
+          //   //  </script>";
 
-            echo '<script>
-              swal.fire("Data Redundant ! ", ":(", "error");
-            </script>';
-            echo ' <script type="text/javascript">
-              setTimeout(function(){window.top.location="keluar.php"} , 2000);
-             </script>';
+          //   echo '<script>
+          //     swal.fire("Data Redundant ! ", ":(", "error");
+          //   </script>';
+          //   echo ' <script type="text/javascript">
+          //     setTimeout(function(){window.top.location="keluar.php"} , 2000);
+          //    </script>';
             
-             die;
+          //    die;
 
+          // }
+          $cek = mysqli_query($conn, "SELECT * FROM tb_user WHERE id = '$id'");
+          $resultCek = mysqli_fetch_array($cek);
+          
+          $id_db = $resultCek['id'];
+          $dateIN = date_create($resultCek['dateCheckout']);
+          $tgl_db = date_format($dateIN, 'd-m-Y');
+
+          if($tgl == $tgl_db){
+            echo '<script>
+             swal.fire("You Have Absence Today ! ", ":(", "warning");
+              </script>';
+             echo ' <script type="text/javascript">
+               setTimeout(function(){window.top.location="keluar.php"} , 2000);
+             </script>';
+            die;
           }
+
+          
+
+          // Update data table user
+          $query =  mysqli_query($conn, "UPDATE tb_user SET dateCheckout = now() WHERE username = '$username' ");
+          
 
           $rec = "INSERT INTO history_out (date_out, username, level_user) VALUES (now(), '$username', '$level_user')";
           $hasil = mysqli_query($conn, $rec);
@@ -174,7 +204,7 @@
         <script type="text/javascript">
           setTimeout(function () {
             window.top.location = "keluar.php"
-          }, 5000);
+          }, 3500);
         </script>
     <?php endif; ?>
 
