@@ -131,7 +131,12 @@
 
           if($tgl == $tgl_db){
             echo '<script>
-             swal.fire("You Have Absence Today ! ", ":(", "warning");
+             swal.fire ({
+              title: "You have been absent today!",
+                icon: "warning",
+                showCancelButton: false,
+                showConfirmButton: false
+             });
               </script>';
              echo ' <script type="text/javascript">
                setTimeout(function(){window.top.location="index.php"} , 2000);
@@ -216,7 +221,7 @@
     <script type="text/javascript">
       setTimeout(function () {
         window.top.location = "index.php"
-      }, 3500);
+      }, 4500);
     </script>
 
     <?php 

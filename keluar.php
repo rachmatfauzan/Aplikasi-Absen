@@ -136,7 +136,12 @@
 
           if($tgl == $tgl_db){
             echo '<script>
-             swal.fire("You Have Absence Today ! ", ":(", "warning");
+             swal.fire ({
+              title: "You have been absent today!",
+                icon: "warning",
+                showCancelButton: false,
+                showConfirmButton: false
+             });
               </script>';
              echo ' <script type="text/javascript">
                setTimeout(function(){window.top.location="keluar.php"} , 2000);
