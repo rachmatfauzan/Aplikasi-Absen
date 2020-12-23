@@ -78,6 +78,8 @@
           error_reporting ( E_ALL & ~E_NOTICE);
           $username = $arr[1];
           $pass = $arr[2];
+          date_default_timezone_set('Asia/Jakarta');
+          $tgl = date('d-m-Y');
 
 
           // 
@@ -92,29 +94,58 @@
           
           $_SESSION['username'] = $result['username'];
           $_SESSION['level'] = $result['level_user'];
+          $_SESSION['dateIn'] = $result ['dateCheckin'];
+
+          $id = $_SESSION['id'];
+          $date = $_SESSION ['dateIn'];
           $level_user = $_SESSION['level'];
           $username = $_SESSION['username'];
           $_SESSION['IsActive'] = TRUE;
 
           
-          $cek = "SELECT * FROM history_in ORDER BY id_masuk DESC";
-          $hasilCek = mysqli_query($conn, $cek);
-          $hasil = mysqli_fetch_array($hasilCek);
+          // $cek = "SELECT * FROM history_in ORDER BY id_masuk DESC";
+          // $hasilCek = mysqli_query($conn, $cek);
+          // $hasil = mysqli_fetch_array($hasilCek);
 
-          $userGanda = $hasil['username'];
+          // $userGanda = $hasil['username'];
 
-          if ( $userGanda == $username){
-            // $dataGanda = true;
-            echo '<script>
-              swal.fire("Data Redundant ! ", ":(", "error");
-            </script>';
-            echo ' <script type="text/javascript">
-              setTimeout(function(){window.top.location="index.php"} , 2000);
-             </script>';
+          // if ( $userGanda == $username){
+          //   // $dataGanda = true;
+          //   echo '<script>
+          //     swal.fire("Data Redundant ! ", ":(", "error");
+          //   </script>';
+          //   echo ' <script type="text/javascript">
+          //     setTimeout(function(){window.top.location="index.php"} , 2000);
+          //    </script>';
             
-             die;
+          //    die;
 
+          // }
+
+          $cek = mysqli_query($conn, "SELECT * FROM tb_user WHERE id = '$id'");
+          $resultCek = mysqli_fetch_array($cek);
+          
+          $id_db = $resultCek['id'];
+          $dateIN = date_create($resultCek['dateCheckin']);
+          $tgl_db = date_format($dateIN, 'd-m-Y');
+
+          if($tgl == $tgl_db){
+            echo '<script>
+             swal.fire("You Have Absence Today ! ", ":(", "warning");
+              </script>';
+             echo ' <script type="text/javascript">
+               setTimeout(function(){window.top.location="index.php"} , 2000);
+             </script>';
+            die;
           }
+
+          
+
+          // Update data table user
+          $query =  mysqli_query($conn, "UPDATE tb_user SET dateCheckin = now() WHERE username = '$username' ");
+
+          
+          
 
           // var_dump($hasil['username']);
           $rec = "INSERT INTO history_in (date_masuk, username, level_user) VALUES (now(), '$username', '$level_user')";
